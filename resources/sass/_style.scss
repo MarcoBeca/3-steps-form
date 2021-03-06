@@ -1,0 +1,11 @@
+// Added styles
+.gradient-background{
+    background: $primary;
+    background: radial-gradient(circle, $primary-light 0%, $primary 100%);
+}
+.field, .min-height-success {
+    min-height: 62px;
+}
+.help {
+    padding-left: 1rem;
+}
