@@ -1,2 +1,21 @@
-// Bulma
-@import 'bulma-variables';
+// Variables
+@import 'variables';
+
+// Import Bulma and Buefy styles
+@import "~bulma";
+@import '~bulma-steps/src/sass';
+@import "~buefy/src/scss/buefy";
+
+// Added styles
+.gradient-background{
+    background: $primary;
+    background: radial-gradient(circle, $primary-light 0%, $primary 100%);
+}
+.field {
+    min-height: 62px;
+}
+.help {
+    padding-left: 1rem;
+}
+
+

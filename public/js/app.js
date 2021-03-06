@@ -1857,9 +1857,156 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  mounted: function mounted() {
-    console.log('Component mounted.');
+  data: function data() {
+    return {
+      formData: {
+        step: 1,
+        name: '',
+        surname: '',
+        email: ''
+      },
+      validation: {}
+    };
+  },
+  methods: {
+    validateStep: function validateStep() {
+      var _this = this;
+
+      axios.post('/api/validate-step', this.formData).then(function (res) {
+        _this.formData.step = res.data.step;
+        _this.validation = res.data.validation;
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    },
+    stepBack: function stepBack() {
+      if (this.formData.step == 2) this.formData.surname = '';
+      if (this.formData.step == 3) this.formData.email = '';
+      this.validation = {};
+      this.formData.step--;
+    },
+    reset: function reset() {
+      Object.assign(this.$data, this.$options.data.call(this));
+    }
   }
 });
 
@@ -19469,22 +19616,387 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", [
     _c("div", { staticClass: "columns" }, [
-      _c("div", { staticClass: "column is-half is-offset-one-quarter" }, [
-        _c(
-          "div",
-          { staticClass: "box" },
-          [
-            _c("b-button", { attrs: { type: "is-primary" } }, [
-              _vm._v("Primary")
+      _c("div", { staticClass: "column is-6 is-offset-3" }, [
+        _c("div", { staticClass: "box" }, [
+          _vm._m(0),
+          _vm._v(" "),
+          _vm._m(1),
+          _vm._v(" "),
+          _c("div", { staticClass: "columns" }, [
+            _c("div", { staticClass: "column is-full" }, [
+              _c("ul", { staticClass: "steps" }, [
+                _c(
+                  "li",
+                  {
+                    staticClass: "step-item",
+                    class: {
+                      "is-completed": _vm.formData.step > 1,
+                      "is-active": _vm.formData.step == 1
+                    }
+                  },
+                  [_c("div", { staticClass: "step-marker" }, [_vm._v("1")])]
+                ),
+                _vm._v(" "),
+                _c(
+                  "li",
+                  {
+                    staticClass: "step-item",
+                    class: {
+                      "is-completed": _vm.formData.step > 2,
+                      "is-active": _vm.formData.step == 2
+                    }
+                  },
+                  [_c("div", { staticClass: "step-marker" }, [_vm._v("2")])]
+                ),
+                _vm._v(" "),
+                _c(
+                  "li",
+                  {
+                    staticClass: "step-item",
+                    class: {
+                      "is-completed": _vm.formData.step > 3,
+                      "is-active": _vm.formData.step == 3
+                    }
+                  },
+                  [_c("div", { staticClass: "step-marker" }, [_vm._v("3")])]
+                ),
+                _vm._v(" "),
+                _c(
+                  "li",
+                  {
+                    staticClass: "step-item",
+                    class: { "is-active": _vm.formData.step == 4 }
+                  },
+                  [_vm._m(2)]
+                )
+              ])
             ])
-          ],
-          1
-        )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "columns mt-5 mb-3" }, [
+            _c("div", { staticClass: "column is-10 is-offset-1" }, [
+              _c(
+                "section",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm.formData.step == 1,
+                      expression: "formData.step == 1"
+                    }
+                  ]
+                },
+                [
+                  _c(
+                    "b-field",
+                    {
+                      attrs: {
+                        type:
+                          Object.keys(_vm.validation).length > 0
+                            ? "is-danger"
+                            : "",
+                        message: _vm.validation.hasOwnProperty("name")
+                          ? _vm.validation.name[0]
+                          : ""
+                      }
+                    },
+                    [
+                      _c("b-input", {
+                        attrs: { placeholder: "Name *", rounded: "" },
+                        nativeOn: {
+                          keyup: function($event) {
+                            if (
+                              !$event.type.indexOf("key") &&
+                              _vm._k(
+                                $event.keyCode,
+                                "enter",
+                                13,
+                                $event.key,
+                                "Enter"
+                              )
+                            ) {
+                              return null
+                            }
+                            return _vm.validateStep($event)
+                          }
+                        },
+                        model: {
+                          value: _vm.formData.name,
+                          callback: function($$v) {
+                            _vm.$set(_vm.formData, "name", $$v)
+                          },
+                          expression: "formData.name"
+                        }
+                      })
+                    ],
+                    1
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "section",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm.formData.step == 2,
+                      expression: "formData.step == 2"
+                    }
+                  ]
+                },
+                [
+                  _c(
+                    "b-field",
+                    {
+                      attrs: {
+                        type:
+                          Object.keys(_vm.validation).length > 0
+                            ? "is-danger"
+                            : "",
+                        message: _vm.validation.hasOwnProperty("surname")
+                          ? _vm.validation.surname[0]
+                          : ""
+                      }
+                    },
+                    [
+                      _c("b-input", {
+                        attrs: { placeholder: "Surname *", rounded: "" },
+                        nativeOn: {
+                          keyup: function($event) {
+                            if (
+                              !$event.type.indexOf("key") &&
+                              _vm._k(
+                                $event.keyCode,
+                                "enter",
+                                13,
+                                $event.key,
+                                "Enter"
+                              )
+                            ) {
+                              return null
+                            }
+                            return _vm.validateStep($event)
+                          }
+                        },
+                        model: {
+                          value: _vm.formData.surname,
+                          callback: function($$v) {
+                            _vm.$set(_vm.formData, "surname", $$v)
+                          },
+                          expression: "formData.surname"
+                        }
+                      })
+                    ],
+                    1
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "section",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm.formData.step == 3,
+                      expression: "formData.step == 3"
+                    }
+                  ]
+                },
+                [
+                  _c(
+                    "b-field",
+                    {
+                      attrs: {
+                        type:
+                          Object.keys(_vm.validation).length > 0
+                            ? "is-danger"
+                            : "",
+                        message: _vm.validation.hasOwnProperty("email")
+                          ? _vm.validation.email[0]
+                          : ""
+                      }
+                    },
+                    [
+                      _c("b-input", {
+                        attrs: { placeholder: "Email *", rounded: "" },
+                        nativeOn: {
+                          keyup: function($event) {
+                            if (
+                              !$event.type.indexOf("key") &&
+                              _vm._k(
+                                $event.keyCode,
+                                "enter",
+                                13,
+                                $event.key,
+                                "Enter"
+                              )
+                            ) {
+                              return null
+                            }
+                            return _vm.validateStep($event)
+                          }
+                        },
+                        model: {
+                          value: _vm.formData.email,
+                          callback: function($$v) {
+                            _vm.$set(_vm.formData, "email", $$v)
+                          },
+                          expression: "formData.email"
+                        }
+                      })
+                    ],
+                    1
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "section",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm.formData.step == 4,
+                      expression: "formData.step == 4"
+                    }
+                  ]
+                },
+                [
+                  _vm._v(
+                    "\n                            Conferma\n                        "
+                  )
+                ]
+              )
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "columns" }, [
+            _c("div", { staticClass: "column is-10 is-offset-1" }, [
+              _vm.formData.step < 4
+                ? _c("div", { staticClass: "columns mt-3" }, [
+                    _c(
+                      "div",
+                      { staticClass: "column is-6" },
+                      [
+                        _c(
+                          "b-button",
+                          {
+                            attrs: {
+                              type: "is-primary is-light",
+                              rounded: "",
+                              disabled: _vm.formData.step == 1
+                            },
+                            on: { click: _vm.stepBack }
+                          },
+                          [
+                            _vm._v(
+                              "\n                                    Prev\n                                "
+                            )
+                          ]
+                        )
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "column is-6" },
+                      [
+                        _c(
+                          "b-button",
+                          {
+                            staticClass: "is-pulled-right",
+                            attrs: { type: "is-primary", rounded: "" },
+                            on: { click: _vm.validateStep }
+                          },
+                          [
+                            _vm._v(
+                              "\n                                    Next\n                                "
+                            )
+                          ]
+                        )
+                      ],
+                      1
+                    )
+                  ])
+                : _c("div", { staticClass: "columns mt-3" }, [
+                    _c(
+                      "div",
+                      { staticClass: "column is-full" },
+                      [
+                        _c(
+                          "b-button",
+                          {
+                            attrs: { type: "is-primary is-light", rounded: "" },
+                            on: { click: _vm.reset }
+                          },
+                          [
+                            _vm._v(
+                              "\n                                    Reset?\n                                "
+                            )
+                          ]
+                        )
+                      ],
+                      1
+                    )
+                  ])
+            ])
+          ])
+        ])
       ])
     ])
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "columns" }, [
+      _c("div", { staticClass: "column is-full" }, [
+        _c(
+          "h1",
+          { staticClass: "title is-4 has-text-primary has-text-centered" },
+          [_vm._v("3 Steps Form")]
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "columns" }, [
+      _c("div", { staticClass: "column is-full p-0" }, [
+        _c(
+          "h3",
+          {
+            staticClass:
+              "subtitle is-6 has-text-grey-darker has-text-centered p-0"
+          },
+          [_vm._v("Practice Test | Treedom")]
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "step-marker" }, [
+      _c("i", { staticClass: "mdi mdi-check" })
+    ])
+  }
+]
 render._withStripped = true
 
 

@@ -900,7 +900,7 @@ table th {
 
 .box {
   background-color: white;
-  border-radius: 6px;
+  border-radius: 20px;
   box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1), 0 0px 0 1px rgba(10, 10, 10, 0.02);
   color: #4a4a4a;
   display: block;
@@ -6288,8 +6288,8 @@ button.dropdown-item.is-active {
 
 .modal-card-head {
   border-bottom: 1px solid #dbdbdb;
-  border-top-left-radius: 6px;
-  border-top-right-radius: 6px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
 }
 
 .modal-card-title {
@@ -6301,8 +6301,8 @@ button.dropdown-item.is-active {
 }
 
 .modal-card-foot {
-  border-bottom-left-radius: 6px;
-  border-bottom-right-radius: 6px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
   border-top: 1px solid #dbdbdb;
 }
 
@@ -7384,7 +7384,7 @@ a.navbar-item.is-active,
 
   .navbar-item.has-dropdown-up .navbar-dropdown {
     border-bottom: 2px solid #dbdbdb;
-    border-radius: 6px 6px 0 0;
+    border-radius: 20px 20px 0 0;
     border-top: none;
     bottom: 100%;
     box-shadow: 0 -8px 8px rgba(10, 10, 10, 0.1);
@@ -7428,8 +7428,8 @@ a.navbar-item.is-active,
 
   .navbar-dropdown {
     background-color: white;
-    border-bottom-left-radius: 6px;
-    border-bottom-right-radius: 6px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
     border-top: 2px solid #dbdbdb;
     box-shadow: 0 8px 8px rgba(10, 10, 10, 0.1);
     display: none;
@@ -7463,7 +7463,7 @@ a.navbar-item.is-active,
 
   .navbar.is-spaced .navbar-dropdown,
   .navbar-dropdown.is-boxed {
-    border-radius: 6px;
+    border-radius: 20px;
     border-top: none;
     box-shadow: 0 8px 8px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
     display: block;
@@ -7727,7 +7727,7 @@ a.navbar-item.is-active,
 }
 
 .panel {
-  border-radius: 6px;
+  border-radius: 20px;
   box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1), 0 0px 0 1px rgba(10, 10, 10, 0.02);
   font-size: 1rem;
 }
@@ -7873,7 +7873,7 @@ a.navbar-item.is-active,
 
 .panel-heading {
   background-color: #ededed;
-  border-radius: 6px 6px 0 0;
+  border-radius: 20px 20px 0 0;
   color: #363636;
   font-size: 1.25em;
   font-weight: 700;
@@ -7939,8 +7939,8 @@ a.navbar-item.is-active,
 }
 
 .panel-block:last-child {
-  border-bottom-left-radius: 6px;
-  border-bottom-right-radius: 6px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
 }
 
 a.panel-block,
@@ -13276,6 +13276,508 @@ a.has-text-danger-dark:focus {
 .footer {
   background-color: #fafafa;
   padding: 3rem 1.5rem 6rem;
+}
+
+.steps {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 1rem;
+  min-height: 2rem;
+}
+
+.steps:not(:last-child) {
+  margin-bottom: 1.5rem;
+}
+
+.steps .step-item {
+  margin-top: 0;
+  position: relative;
+  flex-grow: 1;
+  flex-basis: 0;
+}
+
+.steps .step-item:not(:first-child) {
+  flex-basis: 1em;
+  flex-grow: 1;
+  flex-shrink: 1;
+}
+
+.steps .step-item:not(:first-child)::before {
+  content: " ";
+  display: block;
+  position: absolute;
+}
+
+.steps .step-item::before {
+  background: linear-gradient(to left, #dbdbdb 50%, #F57C00 50%);
+  background-size: 200% 100%;
+  background-position: right bottom;
+}
+
+.steps .step-item::before .step-marker {
+  color: white;
+}
+
+.steps .step-item.is-active::before {
+  background-position: left bottom;
+}
+
+.steps .step-item.is-active .step-marker {
+  background-color: white;
+  border-color: #F57C00;
+  color: #F57C00;
+}
+
+.steps .step-item.is-completed::before {
+  background-position: left bottom;
+}
+
+.steps .step-item.is-completed .step-marker {
+  color: white;
+  background-color: #F57C00;
+}
+
+.steps .step-item .step-marker {
+  align-items: center;
+  display: flex;
+  border-radius: 50%;
+  font-weight: 700;
+  justify-content: center;
+  background: #b5b5b5;
+  color: white;
+  border: 0.2em solid #fff;
+  z-index: 1;
+}
+
+.steps .step-item .step-details {
+  text-align: center;
+}
+
+.steps .step-item.is-white::before {
+  background: linear-gradient(to left, #dbdbdb 50%, white 50%);
+  background-size: 200% 100%;
+  background-position: right bottom;
+}
+
+.steps .step-item.is-white.is-active::before {
+  background-position: left bottom;
+}
+
+.steps .step-item.is-white.is-active .step-marker {
+  background-color: white;
+  border-color: white;
+  color: white;
+}
+
+.steps .step-item.is-white.is-completed::before {
+  background-position: left bottom;
+}
+
+.steps .step-item.is-white.is-completed .step-marker {
+  color: #0a0a0a;
+  background-color: white;
+}
+
+.steps .step-item.is-black::before {
+  background: linear-gradient(to left, #dbdbdb 50%, #0a0a0a 50%);
+  background-size: 200% 100%;
+  background-position: right bottom;
+}
+
+.steps .step-item.is-black.is-active::before {
+  background-position: left bottom;
+}
+
+.steps .step-item.is-black.is-active .step-marker {
+  background-color: white;
+  border-color: #0a0a0a;
+  color: #0a0a0a;
+}
+
+.steps .step-item.is-black.is-completed::before {
+  background-position: left bottom;
+}
+
+.steps .step-item.is-black.is-completed .step-marker {
+  color: white;
+  background-color: #0a0a0a;
+}
+
+.steps .step-item.is-light::before {
+  background: linear-gradient(to left, #dbdbdb 50%, whitesmoke 50%);
+  background-size: 200% 100%;
+  background-position: right bottom;
+}
+
+.steps .step-item.is-light.is-active::before {
+  background-position: left bottom;
+}
+
+.steps .step-item.is-light.is-active .step-marker {
+  background-color: white;
+  border-color: whitesmoke;
+  color: whitesmoke;
+}
+
+.steps .step-item.is-light.is-completed::before {
+  background-position: left bottom;
+}
+
+.steps .step-item.is-light.is-completed .step-marker {
+  color: rgba(0, 0, 0, 0.7);
+  background-color: whitesmoke;
+}
+
+.steps .step-item.is-dark::before {
+  background: linear-gradient(to left, #dbdbdb 50%, #363636 50%);
+  background-size: 200% 100%;
+  background-position: right bottom;
+}
+
+.steps .step-item.is-dark.is-active::before {
+  background-position: left bottom;
+}
+
+.steps .step-item.is-dark.is-active .step-marker {
+  background-color: white;
+  border-color: #363636;
+  color: #363636;
+}
+
+.steps .step-item.is-dark.is-completed::before {
+  background-position: left bottom;
+}
+
+.steps .step-item.is-dark.is-completed .step-marker {
+  color: #fff;
+  background-color: #363636;
+}
+
+.steps .step-item.is-primary::before {
+  background: linear-gradient(to left, #dbdbdb 50%, #F57C00 50%);
+  background-size: 200% 100%;
+  background-position: right bottom;
+}
+
+.steps .step-item.is-primary.is-active::before {
+  background-position: left bottom;
+}
+
+.steps .step-item.is-primary.is-active .step-marker {
+  background-color: white;
+  border-color: #F57C00;
+  color: #F57C00;
+}
+
+.steps .step-item.is-primary.is-completed::before {
+  background-position: left bottom;
+}
+
+.steps .step-item.is-primary.is-completed .step-marker {
+  color: #fff;
+  background-color: #F57C00;
+}
+
+.steps .step-item.is-link::before {
+  background: linear-gradient(to left, #dbdbdb 50%, #3273dc 50%);
+  background-size: 200% 100%;
+  background-position: right bottom;
+}
+
+.steps .step-item.is-link.is-active::before {
+  background-position: left bottom;
+}
+
+.steps .step-item.is-link.is-active .step-marker {
+  background-color: white;
+  border-color: #3273dc;
+  color: #3273dc;
+}
+
+.steps .step-item.is-link.is-completed::before {
+  background-position: left bottom;
+}
+
+.steps .step-item.is-link.is-completed .step-marker {
+  color: #fff;
+  background-color: #3273dc;
+}
+
+.steps .step-item.is-info::before {
+  background: linear-gradient(to left, #dbdbdb 50%, #3298dc 50%);
+  background-size: 200% 100%;
+  background-position: right bottom;
+}
+
+.steps .step-item.is-info.is-active::before {
+  background-position: left bottom;
+}
+
+.steps .step-item.is-info.is-active .step-marker {
+  background-color: white;
+  border-color: #3298dc;
+  color: #3298dc;
+}
+
+.steps .step-item.is-info.is-completed::before {
+  background-position: left bottom;
+}
+
+.steps .step-item.is-info.is-completed .step-marker {
+  color: #fff;
+  background-color: #3298dc;
+}
+
+.steps .step-item.is-success::before {
+  background: linear-gradient(to left, #dbdbdb 50%, #48c774 50%);
+  background-size: 200% 100%;
+  background-position: right bottom;
+}
+
+.steps .step-item.is-success.is-active::before {
+  background-position: left bottom;
+}
+
+.steps .step-item.is-success.is-active .step-marker {
+  background-color: white;
+  border-color: #48c774;
+  color: #48c774;
+}
+
+.steps .step-item.is-success.is-completed::before {
+  background-position: left bottom;
+}
+
+.steps .step-item.is-success.is-completed .step-marker {
+  color: #fff;
+  background-color: #48c774;
+}
+
+.steps .step-item.is-warning::before {
+  background: linear-gradient(to left, #dbdbdb 50%, #ffdd57 50%);
+  background-size: 200% 100%;
+  background-position: right bottom;
+}
+
+.steps .step-item.is-warning.is-active::before {
+  background-position: left bottom;
+}
+
+.steps .step-item.is-warning.is-active .step-marker {
+  background-color: white;
+  border-color: #ffdd57;
+  color: #ffdd57;
+}
+
+.steps .step-item.is-warning.is-completed::before {
+  background-position: left bottom;
+}
+
+.steps .step-item.is-warning.is-completed .step-marker {
+  color: rgba(0, 0, 0, 0.7);
+  background-color: #ffdd57;
+}
+
+.steps .step-item.is-danger::before {
+  background: linear-gradient(to left, #dbdbdb 50%, #f14668 50%);
+  background-size: 200% 100%;
+  background-position: right bottom;
+}
+
+.steps .step-item.is-danger.is-active::before {
+  background-position: left bottom;
+}
+
+.steps .step-item.is-danger.is-active .step-marker {
+  background-color: white;
+  border-color: #f14668;
+  color: #f14668;
+}
+
+.steps .step-item.is-danger.is-completed::before {
+  background-position: left bottom;
+}
+
+.steps .step-item.is-danger.is-completed .step-marker {
+  color: #fff;
+  background-color: #f14668;
+}
+
+.steps .steps-content {
+  align-items: stretch;
+  flex-basis: 100%;
+  margin: 2rem 0;
+}
+
+.steps .steps-content .step-content {
+  display: none;
+}
+
+.steps .steps-content .step-content.is-active {
+  display: block;
+}
+
+.steps .steps-actions {
+  display: flex;
+  align-items: stretch;
+  flex-basis: 100%;
+}
+
+.steps .steps-actions .steps-action {
+  display: flex;
+  flex-basis: 0;
+  flex-grow: 1;
+  margin: 0.5rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.steps.is-animated .step-item::before {
+  transition: all 2s ease;
+}
+
+.steps.is-animated .step-item .step-marker {
+  transition: all 0s ease;
+  transition-delay: 1.5s;
+}
+
+.steps .step-item:not(:first-child)::before {
+  height: 0.2em;
+  width: 100%;
+  bottom: 0;
+  left: -50%;
+  top: 1rem;
+}
+
+.steps .step-item .step-marker {
+  height: 2rem;
+  width: 2rem;
+  position: absolute;
+  left: calc(50% - 1rem);
+}
+
+.steps .step-item .step-marker .icon * {
+  font-size: 1rem;
+}
+
+.steps .step-item .step-details {
+  margin-top: 2rem;
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+  padding-top: 0.2em;
+}
+
+.steps .step-item .step-details .step-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.steps.is-small {
+  font-size: 0.75rem;
+  min-height: 1.5rem;
+}
+
+.steps.is-small .step-item:not(:first-child)::before {
+  height: 0.2em;
+  width: 100%;
+  bottom: 0;
+  left: -50%;
+  top: 0.75rem;
+}
+
+.steps.is-small .step-item .step-marker {
+  height: 1.5rem;
+  width: 1.5rem;
+  position: absolute;
+  left: calc(50% - 0.75rem);
+}
+
+.steps.is-small .step-item .step-marker .icon * {
+  font-size: 0.75rem;
+}
+
+.steps.is-small .step-item .step-details {
+  margin-top: 1.5rem;
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+  padding-top: 0.2em;
+}
+
+.steps.is-small .step-item .step-details .step-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.steps.is-medium {
+  font-size: 1.25rem;
+  min-height: 2.5rem;
+}
+
+.steps.is-medium .step-item:not(:first-child)::before {
+  height: 0.2em;
+  width: 100%;
+  bottom: 0;
+  left: -50%;
+  top: 1.25rem;
+}
+
+.steps.is-medium .step-item .step-marker {
+  height: 2.5rem;
+  width: 2.5rem;
+  position: absolute;
+  left: calc(50% - 1.25rem);
+}
+
+.steps.is-medium .step-item .step-marker .icon * {
+  font-size: 1.25rem;
+}
+
+.steps.is-medium .step-item .step-details {
+  margin-top: 2.5rem;
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+  padding-top: 0.2em;
+}
+
+.steps.is-medium .step-item .step-details .step-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.steps.is-large {
+  font-size: 1.5rem;
+  min-height: 3rem;
+}
+
+.steps.is-large .step-item:not(:first-child)::before {
+  height: 0.2em;
+  width: 100%;
+  bottom: 0;
+  left: -50%;
+  top: 1.5rem;
+}
+
+.steps.is-large .step-item .step-marker {
+  height: 3rem;
+  width: 3rem;
+  position: absolute;
+  left: calc(50% - 1.5rem);
+}
+
+.steps.is-large .step-item .step-marker .icon * {
+  font-size: 1.5rem;
+}
+
+.steps.is-large .step-item .step-details {
+  margin-top: 3rem;
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+  padding-top: 0.2em;
+}
+
+.steps.is-large .step-item .step-details .step-title {
+  font-size: 1.8rem;
+  font-weight: 600;
 }
 
 .is-noscroll {
@@ -19532,7 +20034,7 @@ MIT (https://github.com/Wikiki/bulma-steps/blob/master/LICENSE)
 .b-tooltip .tooltip-content {
   width: auto;
   padding: 0.35rem 0.75rem;
-  border-radius: 6px;
+  border-radius: 20px;
   font-size: 0.85rem;
   font-weight: 400;
   box-shadow: 0px 1px 2px 1px rgba(0, 1, 0, 0.2);
@@ -19686,7 +20188,7 @@ MIT (https://github.com/Wikiki/bulma-steps/blob/master/LICENSE)
   cursor: pointer;
   padding: 0.25em;
   border: 1px dashed #b5b5b5;
-  border-radius: 6px;
+  border-radius: 20px;
 }
 
 .upload .upload-draggable.is-disabled {
@@ -19795,6 +20297,19 @@ MIT (https://github.com/Wikiki/bulma-steps/blob/master/LICENSE)
   .upload .upload-draggable + input[type=file] {
     z-index: -1;
   }
+}
+
+.gradient-background {
+  background: #F57C00;
+  background: radial-gradient(circle, #fff5eb 0%, #F57C00 100%);
+}
+
+.field {
+  min-height: 62px;
+}
+
+.help {
+  padding-left: 1rem;
 }
 
 
