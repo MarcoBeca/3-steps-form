@@ -78,8 +78,9 @@
                                 </b-field>
                             </section>
 
-                            <section v-show="formData.step == 4">
-                                Conferma
+                            <section v-show="formData.step == 4" class="has-text-centered min-height-success">
+                                <p class="has-text-weight-bold">Success!</p>
+                                <p>Thank you for filling out the form</p>
                             </section>
                         </div>
                     </div>

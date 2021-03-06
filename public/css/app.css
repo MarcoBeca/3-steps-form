@@ -20304,7 +20304,8 @@ MIT (https://github.com/Wikiki/bulma-steps/blob/master/LICENSE)
   background: radial-gradient(circle, #fff5eb 0%, #F57C00 100%);
 }
 
-.field {
+.field,
+.min-height-success {
   min-height: 62px;
 }
 

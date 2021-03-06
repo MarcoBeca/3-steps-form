@@ -11,7 +11,7 @@
     background: $primary;
     background: radial-gradient(circle, $primary-light 0%, $primary 100%);
 }
-.field {
+.field, .min-height-success {
     min-height: 62px;
 }
 .help {

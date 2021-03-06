@@ -1975,6 +1975,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -19868,12 +19869,15 @@ var render = function() {
                       value: _vm.formData.step == 4,
                       expression: "formData.step == 4"
                     }
-                  ]
+                  ],
+                  staticClass: "has-text-centered min-height-success"
                 },
                 [
-                  _vm._v(
-                    "\n                            Conferma\n                        "
-                  )
+                  _c("p", { staticClass: "has-text-weight-bold" }, [
+                    _vm._v("Success!")
+                  ]),
+                  _vm._v(" "),
+                  _c("p", [_vm._v("Thank you for filling out the form")])
                 ]
               )
             ])
