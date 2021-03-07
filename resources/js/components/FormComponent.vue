@@ -87,39 +87,33 @@
 
                     <div class="columns">
                         <div class="column is-10 is-offset-1">
-                            <div class="columns mt-3" v-if="formData.step < 4">
-                                <div class="column is-6">
-                                    <b-button
-                                        type="is-primary is-light"
-                                        rounded
-                                        :disabled="formData.step == 1" @click="stepBack"
-                                    >
-                                        Prev
-                                    </b-button>
-                                </div>
-                                <div class="column is-6">
-                                    <b-button
-                                        type="is-primary"
-                                        class="is-pulled-right"
-                                        rounded
-                                        @click="validateStep"
-                                    >
-                                        Next
-                                    </b-button>
-                                </div>
-                            </div>
+                           <b-button
+                                type="is-primary is-light"
+                                rounded
+                                @click="reset"
+                                v-if="formData.step == 4"
+                            >
+                                Restart?
+                            </b-button>
 
-                            <div class="columns mt-3" v-else>
-                                <div class="column is-full">
-                                    <b-button
-                                        type="is-primary is-light"
-                                        rounded
-                                        @click="reset"
-                                    >
-                                        Reset?
-                                    </b-button>
-                                </div>
-                            </div>
+                             <b-button
+                                type="is-primary is-light"
+                                rounded
+                                :disabled="formData.step == 1" @click="stepBack"
+                                v-else
+                            >
+                                Prev
+                            </b-button>
+
+                            <b-button
+                                type="is-primary"
+                                class="is-pulled-right"
+                                rounded
+                                @click="validateStep"
+                                v-if="formData.step < 4"
+                            >
+                                Next
+                            </b-button>
                         </div>
                     </div>
 
