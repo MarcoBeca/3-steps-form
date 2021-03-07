@@ -6,13 +6,17 @@
 
                     <div class="columns">
                         <div class="column is-full">
-                            <h1 class="title is-4 has-text-primary has-text-centered">3 Steps Form</h1>
+                            <h1 class="title is-4 has-text-primary has-text-centered">
+                                3 Steps Form
+                            </h1>
                         </div>
                     </div>
 
                     <div class="columns">
                         <div class="column is-full p-0">
-                            <h3 class="subtitle is-6 has-text-grey-darker has-text-centered p-0">Practice Test | Treedom</h3>
+                            <h3 class="subtitle is-6 has-text-grey-darker has-text-centered p-0">
+                                Practice Test | Treedom
+                            </h3>
                         </div>
                     </div>
 
@@ -56,7 +60,12 @@
                                     :type="Object.keys(validation).length > 0 ? 'is-danger' : '' "
                                     :message="validation.hasOwnProperty('name') ? validation.name[0] : '' "
                                 >
-                                    <b-input placeholder="Name *" rounded v-model="formData.name" @keyup.native.enter="validateStep"></b-input>
+                                    <b-input
+                                        placeholder="Name *"
+                                        rounded
+                                        v-model="formData.name"
+                                        @keyup.native.enter="validateStep"
+                                    ></b-input>
                                 </b-field>
                             </section>
 
@@ -65,7 +74,12 @@
                                     :type="Object.keys(validation).length > 0 ? 'is-danger' : '' "
                                     :message="validation.hasOwnProperty('surname') ? validation.surname[0] : '' "
                                 >
-                                    <b-input placeholder="Surname *" rounded v-model="formData.surname" @keyup.native.enter="validateStep"></b-input>
+                                    <b-input
+                                        placeholder="Surname *"
+                                        rounded
+                                        v-model="formData.surname"
+                                        @keyup.native.enter="validateStep"
+                                    ></b-input>
                                 </b-field>
                             </section>
 
@@ -74,7 +88,12 @@
                                     :type="Object.keys(validation).length > 0 ? 'is-danger' : '' "
                                     :message="validation.hasOwnProperty('email') ? validation.email[0] : '' "
                                 >
-                                    <b-input placeholder="Email *" rounded v-model="formData.email" @keyup.native.enter="validateStep"></b-input>
+                                    <b-input
+                                        placeholder="Email *"
+                                        rounded
+                                        v-model="formData.email"
+                                        @keyup.native.enter="validateStep"
+                                    ></b-input>
                                 </b-field>
                             </section>
 
@@ -87,7 +106,7 @@
 
                     <div class="columns">
                         <div class="column is-10 is-offset-1">
-                           <b-button
+                            <b-button
                                 type="is-primary is-light"
                                 rounded
                                 @click="reset"
@@ -99,7 +118,8 @@
                              <b-button
                                 type="is-primary is-light"
                                 rounded
-                                :disabled="formData.step == 1" @click="stepBack"
+                                @click="stepBack"
+                                :disabled="formData.step == 1"
                                 v-else
                             >
                                 Prev
