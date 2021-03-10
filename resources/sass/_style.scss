@@ -1,4 +1,4 @@
-// Added styles
+// Style
 .gradient-background{
     background: $primary;
     background: radial-gradient(circle, $primary-light 0%, $primary 100%);
@@ -8,4 +8,7 @@
 }
 .help {
     padding-left: 1rem;
+}
+.carousel-container {
+    height: 250px;
 }
