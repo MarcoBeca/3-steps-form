@@ -6,7 +6,7 @@
 
                     <b-loading :is-full-page="false" v-model="loading"></b-loading>
 
-                    <transition :name="transitionType" mode="in-out">
+                    <transition :name="transitionType">
                         <div v-if="!loading">
                             <div class="columns">
                                 <div class="column is-full">
